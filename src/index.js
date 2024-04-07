@@ -1,8 +1,7 @@
 /*This code is for the first form*/
-
+let submitOne = document.getElementById("submitOne");
 function checkAge(event) {
   event.preventDefault();
-  let submitOne = document.getElementById("submitOne");
   let inputAge = document.getElementById("exampleInputAge");
   let answerFormAge = document.getElementById("resultAge");
   if (inputAge.value) {
@@ -23,18 +22,12 @@ function checkAge(event) {
   }
 }
 
-// function say(event) {
-//   event.preventDefault();
-//   console.log("hello");
-// }
-
 submitOne.addEventListener("click", checkAge);
 
 /*This code is for the second form*/
-
+let submitTwo = document.getElementById("submitTwo");
 function checkColor(event) {
   event.preventDefault();
-  let submitTwo = document.getElementById("submitTwo");
   let inputColor = document.getElementById("exampleInputColor");
   inputColor = inputColor.value.toLowerCase();
   let answerFormPersonality = document.getElementById("resultPersonality");
@@ -68,8 +61,9 @@ function checkColor(event) {
       console.log("hello");
     }
   } else {
+    answerFormPersonality.style.color = "red";
     answerFormPersonality.innerHTML =
-      "Please choose ONLY a color from the options mentioned above";
+      "Please choose a color from the options mentioned above";
   }
 }
 
@@ -77,41 +71,39 @@ submitTwo.addEventListener("click", checkColor);
 
 /*This code is for the third form*/
 let submitThree = document.getElementById("submitThree");
-let inputPlug = document.getElementById("exampleInputPlug");
-let inputBurn = document.getElementById("exampleInputBurn");
-let answerFormSolution = document.getElementById("resultSolution");
 
-/*function checkQuestion(event) {
+function checkQuestion(event) {
   event.preventDefault();
-  if (
-    inputColor.value === "blue" ||
-    inputColor.value === "green" ||
-    inputColor.value === "yellow" ||
-    inputColor.value === "violet"
-  ) {
-    if (inputColor.value === "blue") {
-      answerFormPersonality.innerHTML = "Blue 🎉";
-      console.log("hello");
-    }
-
-    if (inputColor.value === "green") {
-      answerFormPersonality.innerHTML = "green 🎉";
-      console.log("hello");
-    }
-
-    if (inputColor.value === "yellow") {
-      answerFormPersonality.innerHTML = "yellow 🎉";
-      console.log("hello");
-    }
-
-    if (inputColor.value === "violet") {
-      answerFormPersonality.innerHTML = "violet 🎉";
-      console.log("hello");
-    }
-  } else {
-    answerFormPersonality.innerHTML =
-      "Please choose ONLY a color from the options mentioned above";
+  let inputPlug = document.getElementById("exampleInputPlug");
+  inputPlug = inputPlug.value.toLowerCase();
+  let inputBurn = document.getElementById("exampleInputBurn");
+  inputBurn = inputBurn.value.toLowerCase();
+  let answerFormSolution = document.getElementById("resultSolution");
+  switch (true) {
+    case inputPlug === "yes" && inputBurn === "yes":
+      answerFormSolution.innerHTML = "You need to replace the light bulb 💡";
+      break;
+    case inputPlug === "yes" && inputBurn === "no":
+      answerFormSolution.innerHTML = "👉You need to buy a new lamp👈";
+      break;
+    case inputPlug === "no" && inputBurn === "yes":
+      answerFormSolution.innerHTML =
+        "Please plug in the lamp 🔌 and replace the light bulb 💡";
+      break;
+    case inputPlug === "no" && inputBurn === "no":
+      answerFormSolution.innerHTML = "Please plug in the lamp 🔌";
+      break;
+    case !inputPlug && (inputBurn === "yes" || inputBurn === "no"):
+      answerFormSolution.innerHTML = "Please answer the first question";
+      break;
+    case !inputBurn && (inputPlug === "yes" || inputPlug === "no"):
+      answerFormSolution.innerHTML = "Please answer the second question";
+      break;
+    default:
+      answerFormSolution.style.color = "red";
+      answerFormSolution.innerHTML =
+        'Please enter a valid answer: "yes" or "no"';
   }
-}----hay que adaptar esta función totalmente al tercer formulario, he pensado que es mejor esta vez hacerlo con un switch*/
+}
 
 submitThree.addEventListener("click", checkQuestion);
