@@ -40,25 +40,21 @@ function checkColor(event) {
     if (inputColor === "blue") {
       answerFormPersonality.innerHTML = "Blue 🎉";
       answerFormPersonality.style.color = "blue";
-      console.log("hello");
     }
 
     if (inputColor === "green") {
       answerFormPersonality.innerHTML = "green 🎉";
       answerFormPersonality.style.color = "green";
-      console.log("hello");
     }
 
     if (inputColor === "yellow") {
       answerFormPersonality.innerHTML = "yellow 🎉";
       answerFormPersonality.style.color = "yellow";
-      console.log("hello");
     }
 
     if (inputColor === "violet") {
       answerFormPersonality.innerHTML = "violet 🎉";
       answerFormPersonality.style.color = "violet";
-      console.log("hello");
     }
   } else {
     answerFormPersonality.style.color = "red";
